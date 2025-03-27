@@ -14,88 +14,90 @@
       color: #333;
     }
 
-    h1 {font-size: 36px; text-align: center; margin-top: 40px; margin-bottom: 10px;}
+    h1 {
+      font-size: 36px;
+      text-align: center;
+      margin: 40px 0 10px;
+    }
 
-    .desc {text-align: center; font-size: 16px; padding: 10px; background-color: #fff4b2; color: #444; margin-bottom: 30px;}
-
-.box p {
-  font-size: 18px;          /* 글자 크기 */
-  color: white;             /* 글자 색 */
-  background-color: #ff6347;/* 배경색 (토마토색 계열) */
-  padding: 10px 0;          /* 위아래 여백 */
-  margin: 0;                /* 기본 마진 제거 */
-  text-align: center;       /* 가운데 정렬 */
-  border-bottom-left-radius: 8px;
-  border-bottom-right-radius: 8px;
-}
-
-    #Cartoon {width: 1200px; margin: 0 auto; background-color: #ffe600; display: flex; flex-wrap: wrap; justify-content: center;gap: 20px;
-              padding: 30px; border-radius: 10px;}
+    #Cartoon {
+      width: 1200px;
+      margin: 0 auto;
+      background-color: #ffe600;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      padding: 30px;
+      border-radius: 10px;
+    }
 
     .box {
-  width: 23%;
-  height: auto;
-  background-color: tomato;
-  border-radius: 8px;
-  overflow: hidden;
-  text-align: center;
-  }
+      width: 23%;
+      background-color: white;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+      text-align: center;
+      padding-bottom: 10px;
+    }
 
     .box img {
-   width: 100%;               /* 박스 너비에 맞게 */
-   height: 300px;             /* 원하는 높이 지정 */
-   object-fit: cover;         /* 비율 유지 + 꽉 채움 */
-   display: block;            /* 아래 여백 제거 */
-   border-radius: 8px 8px 0 0; /* 윗부분 둥글게 (선택) */
- }
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      display: block;
+      border-radius: 8px 8px 0 0;
+    }
 
-    .box:hover {background-color: orangered; cursor: pointer;}
+    .price {
+      font-size: 18px;
+      color: #444;
+      margin: 10px 0 5px;
+    }
+
+    .cart-btn {
+      background-color: tomato;
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 5px;
+      font-size: 14px;
+      cursor: pointer;
+      transition: background-color 0.2s;
+    }
+
+    .cart-btn:hover {
+      background-color: orangered;
+    }
   </style>
-
 </head>
 <body>
 
-  <h1>Ai 4컷 웹툰</h1>,<br><br>
-        
+  <h1>Ai 4컷 웹툰</h1>
 
   <div id="Cartoon">
     <div class="box">
-        <img src="img/iu_1.jpg" alt="1번째장면">
-        <p>5천원</p>
+      <img src="img/iu_1.jpg" alt="1번째 장면">
+      <p class="price">5,000원</p>
+      <button class="cart-btn">장바구니</button>
     </div>
     <div class="box">
-        <img src="img/iu_2.jpg" alt="2번째장면">
+      <img src="img/iu_2.jpg" alt="2번째 장면">
+      <p class="price">1,000만원</p>
+      <button class="cart-btn">장바구니</button>
     </div>
     <div class="box">
-        <img src="img/iu_3.jpg" alt="3번째장면">
+      <img src="img/iu_3.jpg" alt="3번째 장면">
+      <p class="price">20,000원</p>
+      <button class="cart-btn">장바구니</button>
     </div>
     <div class="box">
-        <img src="img/iu_4.jpg" alt="4번째장면">
+      <img src="img/iu_4.jpg" alt="4번째 장면">
+      <p class="price">15,000원</p>
+      <button class="cart-btn">장바구니</button>
     </div>
-    <div class="box">
-        <img src="img/iu_5.jpg" alt="5번째장면">
-    </div>
-    <div class="box">
-        <img src="img/iu_6.jpg" alt="6번째장면">
-   </div>
-    <div class="box">
-        <img src="img/iu_7.jpg" alt="7번째장면">
-    </div>
-    <div class="box">
-        <img src="img/iu_8.jpg" alt="8번째장면">
-    </div>
-    <div class="box">
-        <img src="img/iu_9.jpg" alt="9번째장면">
-    </div>
-    <div class="box">
-        <img src="img/iu_10.jpg" alt="10번째장면">
-    </div>
-    <div class="box">
-        <img src="img/iu_11.jpg" alt="11번째장면">
-    </div>
-    <div class="box">
-        <img src="img/iu_12.jpg" alt="12번째장면">
-    </div>
+    <!-- 나머지도 같은 형식으로 추가하면 됩니다 -->
   </div>
 
 </body>
