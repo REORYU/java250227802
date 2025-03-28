@@ -2,94 +2,147 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
-  <title>Ai 4컷 웹툰</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GIF HUMOR</title>
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    ul, ol, li { list-style: none; }
-    a { text-decoration: none; color: inherit; }
+    body { margin: 0; padding: 0; font-family: "맑은 고딕", sans-serif; }
+    ul, li { list-style: none; margin: 0; padding: 0; }
 
-    body {
-      font-family: '맑은 고딕', sans-serif;
-      background-color: #f8f8f8;
-      color: #333;
-    }
+    header { width: 1100px; height: 100px; margin: 0 auto; }
+    #logo { float: left; width: 130px; height: 100px; margin: 10px 0 0 20px; }
+    #logo img { width: 100px; height: 100px; }
 
-    h1 {
-      font-size: 36px;
-      text-align: center;
-      margin: 40px 0 20px;
-    }
+    nav { float: right; width: 740px; height: 100px; line-height: 100px; margin: 0 10px 0 0; }
+    nav ul { font-family: "Arial", sans-serif; font-weight: bold; }
+    nav ul li { float: left; padding: 0 20px; }
+    nav ul li a { text-decoration: none; color: #333; }
+    nav ul li a:hover { color: #007acc; }
 
-    #Cartoon {
-      width: 1200px;
-      margin: 0 auto;
-      background-color: #ffe600;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 20px;
-      padding: 30px;
-      border-radius: 10px;
-    }
-
-    .box {
-      width: 23%;
-      background-color: white;
-      border-radius: 8px;
-      overflow: hidden;
-      box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
-      text-align: center;
-      padding-bottom: 10px;
-    }
-
-    .box img {
-      width: 100%;
-      height: 300px;
-      object-fit: cover;
-      display: block;
-      border-radius: 8px 8px 0 0;
-    }
-
-    .price {
-      font-size: 18px;
-      color: #444;
-      margin: 10px 0 5px;
-    }
-
-    .cart-btn {
-      background-color: tomato;
+    #slider { width: 1100px; height: auto; margin: 0 auto; text-align: center; position: relative; }
+    #slider img { width: 100%; height: auto; }
+    #slider button {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(0, 0, 0, 0.5);
       color: white;
       border: none;
-      padding: 8px 16px;
-      border-radius: 5px;
-      font-size: 14px;
+      padding: 10px;
       cursor: pointer;
-      transition: background-color 0.2s;
+      font-size: 16px;
     }
+    #slider button:first-of-type { left: 10px; }
+    #slider button:last-of-type { right: 10px; }
 
-    .cart-btn:hover {
-      background-color: orangered;
+    section { width: 800px; margin: 50px auto; overflow: hidden; }
+    article { float: left; width: 350px; min-height: 160px; margin: 0 10px; overflow: hidden; }
+
+    article h3 { display: none; }
+    article img { float: left; margin: 0 10px 0 0; }
+
+    .icon-wrap { clear: both; width: 1100px; margin: 20px auto; text-align: center; }
+    .icon { display: inline-block; width: 100px; margin: 0 20px; text-align: center; }
+    .icon a { text-decoration: none; color: #333; }
+    .icon a:hover { color: #007acc; }
+    .icon img { width: 100px; height: 100px; object-fit: contain; }
+    .icon p { margin-top: 10px; font-size: 13px; }
+
+    footer { width: 1100px; height: 100px; margin: 0 auto; overflow: hidden; }
+    footer img { float: left; margin: 20px 0 0 2px; }
+    footer p { font-size: 12px; color: #666; float: right; margin: 40px 100px 0 0; }
+
+    /* 반응형 디자인 */
+    @media (max-width: 1100px) {
+      header, #slider, section, .icon-wrap, footer { width: 100%; padding: 0 10px; box-sizing: border-box; }
+      nav { width: 60%; }
+      nav ul li { padding: 0 10px; }
+      article { width: 100%; margin: 10px 0; }
+      .icon { margin: 0 10px; }
     }
   </style>
 </head>
 <body>
+  <header>
+    <div id="logo">
+      <img src="img/header_logo.png" alt="GIF HUMOR 로고">
+    </div>
+    <nav>
+      <ul>
+        <li><a href="#today-episode">EPISODES</a></li>
+        <li><a href="#icon-section">CHARACTERS</a></li>
+        <li><a href="#">SPECIAL CUTS</a></li>
+        <li><a href="#">REVIEW</a></li>
+        <li><a href="#">TOOLS & TIPS</a></li>
+      </ul>
+    </nav>
+  </header>
 
-  <h1>Ai 4컷 웹툰</h1>
-
-  <div id="Cartoon">
-    <div class="box"><img src="img/iu_1.jpg" alt="1컷"><p class="price">5,000원</p><button class="cart-btn">장바구니</button></div>
-    <div class="box"><img src="img/iu_2.jpg" alt="2컷"><p class="price">10,000원</p><button class="cart-btn">장바구니</button></div>
-    <div class="box"><img src="img/iu_3.jpg" alt="3컷"><p class="price">15,000원</p><button class="cart-btn">장바구니</button></div>
-    <div class="box"><img src="img/iu_4.jpg" alt="4컷"><p class="price">8,800원</p><button class="cart-btn">장바구니</button></div>
-    <div class="box"><img src="img/iu_5.jpg" alt="5컷"><p class="price">9,900원</p><button class="cart-btn">장바구니</button></div>
-    <div class="box"><img src="img/iu_6.jpg" alt="6컷"><p class="price">13,000원</p><button class="cart-btn">장바구니</button></div>
-    <div class="box"><img src="img/iu_7.jpg" alt="7컷"><p class="price">11,000원</p><button class="cart-btn">장바구니</button></div>
-    <div class="box"><img src="img/iu_8.jpg" alt="8컷"><p class="price">6,600원</p><button class="cart-btn">장바구니</button></div>
-    <div class="box"><img src="img/iu_9.jpg" alt="9컷"><p class="price">7,700원</p><button class="cart-btn">장바구니</button></div>
-    <div class="box"><img src="img/iu_10.jpg" alt="10컷"><p class="price">12,000원</p><button class="cart-btn">장바구니</button></div>
-    <div class="box"><img src="img/iu_11.jpg" alt="11컷"><p class="price">14,000원</p><button class="cart-btn">장바구니</button></div>
-    <div class="box"><img src="img/iu_12.jpg" alt="12컷"><p class="price">10,500원</p><button class="cart-btn">장바구니</button></div>
+  <div id="slider">
+    <img id="slide-image" src="img/main_webtoon_slide.png" alt="웹툰 메인 슬라이드">
+    <button onclick="changeSlide(-1)">이전</button>
+    <button onclick="changeSlide(1)">다음</button>
   </div>
 
+  <section id="today-episode">
+    <article>
+      <img src="img/bottom_today_episode.png" alt="오늘의 에피소드" width="320">
+    </article>
+
+    <article>
+      <img src="img/bottom_sympathy_rank.png" alt="공감 랭킹" width="320">
+    </article>
+  </section>
+
+  <div class="icon-wrap" id="icon-section">
+    <div class="icon">
+      <a href="episode.html">
+        <img src="img/bottom_icon_episode.png" alt="에피소드 체험">
+        <p>에피소드 체험</p>
+      </a>
+    </div>
+    <div class="icon">
+      <a href="laugh.html">
+        <img src="img/bottom_icon_laugh.png" alt="웃음배달 신청">
+        <p>웃음배달 신청</p>
+      </a>
+    </div>
+    <div class="icon">
+      <a href="points.html">
+        <img src="img/bottom_icon_search.png" alt="공감포인트">
+        <p>공감포인트</p>
+      </a>
+    </div>
+  </div>
+
+
+
+  <script>
+    // 슬라이더 기능
+    const image = document.getElementById("slide-image");
+    const slides = [
+      "img/main_webtoon_slide.png",
+      "img/main_webtoon_slide.png",
+      "img/main_webtoon_slide.png"
+    ];
+    let current = 0;
+
+    function changeSlide(offset) {
+      current = (current + offset + slides.length) % slides.length;
+      image.src = slides[current];
+    }
+
+    // 자동 슬라이드
+    setInterval(() => changeSlide(1), 3000);
+
+    // 부드러운 스크롤
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+  </script>
 </body>
 </html>
