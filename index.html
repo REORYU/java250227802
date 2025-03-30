@@ -41,14 +41,25 @@
       margin-right: 8px;
     }
     .sidebar ul li:nth-child(1)::before { content: "📝"; }
-    .sidebar ul li:nth-child(4)::before { content: "📘"; }
     .sidebar ul li:nth-child(2)::before { content: "🔍"; }
     .sidebar ul li:nth-child(3)::before { content: "🛠"; }
+    .sidebar ul li:nth-child(4)::before { content: "📘"; }
     .sidebar ul li:nth-child(5)::before { content: "💬"; }
     .sidebar ul li:nth-child(6)::before { content: "📊"; }
     .sidebar ul li:nth-child(7)::before { content: "🎬"; }
     .sidebar ul li:nth-child(8)::before { content: "✉️"; }
     .sidebar ul li:nth-child(9)::before { content: "🔎"; }
+
+    /* 추가된 이미지 아이콘 스타일 (버디버디/싸이월드 공통) */
+    .sidebar ul li.buddy {
+      display: flex;
+      align-items: center;
+    }
+    .sidebar ul li.buddy img {
+      width: 24px;
+      height: 24px;
+      margin-right: 8px;
+    }
 
     /* 메인 콘텐츠 */
     .main {
@@ -94,17 +105,27 @@
     </div>
     <ul>
       <li onclick="location.href='login/login.html'">회원가입 / 로그인</li>
-      <li>오늘의 4컷</li>
       <li>검색</li>
       <li>도구 & 팁</li>
-      
+      <li>오늘의 웹툰</li>
       <li>웃음 리뷰</li>
       <li>인기 랭킹</li>
       <li>에피소드 체험</li>
       <li>웃음배달 신청</li>
       <li>공감포인트</li>
+
+      <!-- ✅ 추가된 버디버디 메뉴 -->
+      <li class="buddy" onclick="location.href='buddy/index.html'">
+        <img src="/img/buddy_BUDDY.png" alt="버디버디 아이콘">버디버디
+      </li>
+
+      <!-- ✅ 추가된 싸이월드 메뉴 -->
+      <li class="buddy" onclick="location.href='cyworld/index.html'">
+        <img src="img/Cyworld64.png" alt="싸이월드 아이콘">싸이월드
+      </li>
     </ul>
   </aside>
+
   <main class="main">
     <div class="webtoon-title">
       <h1>😊 GIF HUMOR의 하루</h1>
