@@ -5,144 +5,117 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>GIF HUMOR</title>
   <style>
-    body { margin: 0; padding: 0; font-family: "맑은 고딕", sans-serif; }
-    ul, li { list-style: none; margin: 0; padding: 0; }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: "Malgun Gothic", sans-serif; display: flex; }
 
-    header { width: 1100px; height: 100px; margin: 0 auto; }
-     #logo { float: left; width: 170px; height: auto; margin: 25px 40px 20px; }
-      #logo img { width: 100px; height: auto; }
-
-    nav { float: right; width: 740px; height: 100px; line-height: 100px; margin: 0 10px 0 0; }
-    nav ul { font-family: "Arial", sans-serif; font-weight: bold; }
-    nav ul li { float: left; padding: 0 20px; }
-    nav ul li a { text-decoration: none; color: #333; }
-    nav ul li a:hover { color: #007acc; }
-
-    #slider { width: 1100px; height: auto; margin: 0 auto; text-align: center; position: relative; }
-    #slider img { width: 100%; height: auto; }
-    #slider button {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      background: rgba(0, 0, 0, 0.5);
-      color: white;
-      border: none;
-      padding: 10px;
-      cursor: pointer;
-      font-size: 16px;
+    /* 사이드 메뉴 */
+    .sidebar {
+      width: 220px;
+      background-color: #f5f5f5;
+      padding: 30px 20px;
+      height: 100vh;
     }
-    #slider button:first-of-type { left: 10px; }
-    #slider button:last-of-type { right: 10px; }
+    .logo {
+      text-align: left;
+      margin-bottom: 30px;
+    }
+    .logo img {
+      width: 120px;
+    }
+    .sidebar ul {
+      list-style: none;
+    }
+    .sidebar ul li {
+      margin: 15px 0;
+      font-size: 16px;
+      padding: 5px 10px;
+      border-radius: 5px;
+      transition: background-color 0.3s, color 0.3s;
+    }
+    .sidebar ul li:hover {
+      background-color: #ffeb3b;
+      color: #000;
+      cursor: pointer;
+    }
+    .sidebar ul li::before {
+      margin-right: 8px;
+    }
+    .sidebar ul li:nth-child(1)::before { content: "📝"; }
+    .sidebar ul li:nth-child(2)::before { content: "🔍"; }
+    .sidebar ul li:nth-child(3)::before { content: "🛠"; }
+    .sidebar ul li:nth-child(4)::before { content: "📘"; }
+    .sidebar ul li:nth-child(5)::before { content: "💬"; }
+    .sidebar ul li:nth-child(6)::before { content: "📊"; }
+    .sidebar ul li:nth-child(7)::before { content: "🎬"; }
+    .sidebar ul li:nth-child(8)::before { content: "✉️"; }
+    .sidebar ul li:nth-child(9)::before { content: "🔎"; }
 
-    section { width: 800px; margin: 50px auto; overflow: hidden; }
-    article { float: left; width: 350px; min-height: 160px; margin: 0 10px; overflow: hidden; }
+    /* 메인 콘텐츠 */
+    .main {
+      padding: 30px 20px;
+    }
+    .webtoon-row {
+      margin-bottom: 30px;
+    }
+    .webtoon-row img {
+      width: 100%;
+      max-width: 900px;
+      display: block;
+    }
 
-    article h3 { display: none; }
-    article img { float: left; margin: 0 10px 0 0; }
-
-    .icon-wrap { clear: both; width: 1100px; margin: 20px auto; text-align: center; }
-    .icon { display: inline-block; width: 100px; margin: 0 20px; text-align: center; }
-    .icon a { text-decoration: none; color: #333; }
-    .icon a:hover { color: #007acc; }
-    .icon img { width: 100px; height: 100px; object-fit: contain; }
-    .icon p { margin-top: 10px; font-size: 13px; }
-
-    footer { width: 1100px; height: 100px; margin: 0 auto; overflow: hidden; }
-    footer img { float: left; margin: 20px 0 0 2px; }
-    footer p { font-size: 12px; color: #666; float: right; margin: 40px 100px 0 0; }
-
-    /* 반응형 디자인 */
-    @media (max-width: 1100px) {
-      header, #slider, section, .icon-wrap, footer { width: 100%; padding: 0 10px; box-sizing: border-box; }
-      nav { width: 60%; }
-      nav ul li { padding: 0 10px; }
-      article { width: 100%; margin: 10px 0; }
-      .icon { margin: 0 10px; }
+    /* 푸터 스타일 */
+    footer {
+      margin-top: 50px;
+      padding: 20px 0;
+      text-align: center;
+      font-size: 14px;
+      color: #777;
+      border-top: 1px solid #ccc;
+    }
+    footer img {
+      width: 80px;
+      vertical-align: middle;
+      margin-bottom: 10px;
     }
   </style>
 </head>
 <body>
-  <header>
-    <div id="logo">
+  <aside class="sidebar">
+    <div class="logo">
       <img src="img/logo.png" alt="GIF HUMOR 로고">
     </div>
-    <nav>
-      <ul>
-        <li><a href="#today-episode">EPISODES</a></li>
-        <li><a href="#icon-section">CHARACTERS</a></li>
-        <li><a href="#">SPECIAL CUTS</a></li>
-        <li><a href="#">REVIEW</a></li>
-        <li><a href="#">TOOLS & TIPS</a></li>
-      </ul>
-    </nav>
-  </header>
-
-  <div id="slider">
-    <img id="slide-image" src="img/main_webtoon_slide.png" alt="웹툰 메인 슬라이드">
-    <button onclick="changeSlide(-1)">이전</button>
-    <button onclick="changeSlide(1)">다음</button>
-  </div>
-
-  <section id="today-episode">
-    <article>
-      <img src="img/bottom_today_episode.png" alt="오늘의 에피소드" width="320">
-    </article>
-
-    <article>
-      <img src="img/bottom_sympathy_rank.png" alt="공감 랭킹" width="320">
-    </article>
-  </section>
-
-  <div class="icon-wrap" id="icon-section">
-    <div class="icon">
-      <a href="episode.html">
-        <img src="img/bottom_icon_episode.png" alt="에피소드 체험">
-        <p>에피소드 체험</p>
-      </a>
+    <ul>
+      <li>회원가입 / 로그인</li>
+      <li>검색</li>
+      <li>도구 & 팁</li>
+      <li>오늘의 웹툰</li>
+      <li>웃음 리뷰</li>
+      <li>인기 랭킹</li>
+      <li>에피소드 체험</li>
+      <li>웃음배달 신청</li>
+      <li>공감포인트</li>
+    </ul>
+  </aside>
+  <main class="main">
+    <div class="webtoon-row">
+      <img src="img/main_webtoon_slide.png" alt="웹툰 1">
     </div>
-    <div class="icon">
-      <a href="laugh.html">
-        <img src="img/bottom_icon_laugh.png" alt="웃음배달 신청">
-        <p>웃음배달 신청</p>
-      </a>
+
+    <!-- 🎬 추가된 부분 시작 -->
+    <div class="webtoon-video" style="text-align: center; margin: 40px 0;">
+      <h2 style="font-size: 20px; margin-bottom: 20px;">🎬 GIF HUMOR 동영상</h2>
+      <video src="video/intro.mp4" controls style="max-width: 900px; width: 100%; border-radius: 10px;"></video>
     </div>
-    <div class="icon">
-      <a href="points.html">
-        <img src="img/bottom_icon_search.png" alt="공감포인트">
-        <p>공감포인트</p>
-      </a>
-    </div>
-  </div>
+    <!-- 🎬 추가된 부분 끝 -->
 
-
-
-  <script>
-    // 슬라이더 기능
-    const image = document.getElementById("slide-image");
-    const slides = [
-      "img/main_webtoon_slide.png",
-      "img/main_webtoon_slide.png",
-      "img/main_webtoon_slide.png"
-    ];
-    let current = 0;
-
-    function changeSlide(offset) {
-      current = (current + offset + slides.length) % slides.length;
-      image.src = slides[current];
-    }
-
-    // 자동 슬라이드
-    setInterval(() => changeSlide(1), 3000);
-
-    // 부드러운 스크롤
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-          behavior: 'smooth'
-        });
-      });
-    });
-  </script>
+     <footer>
+      <div>
+        <img src="img/logo.png" alt="GIF HUMOR 로고">
+      </div>
+      <p>© 2025 GIF HUMOR. All rights reserved.</p>
+      <p>본 웹사이트의 모든 콘텐츠는 GIF HUMOR에 의해 제작되었으며, 무단 복제 및 배포를 금합니다.</p>
+      <p>주소: 서울특별시 강남구 테헤란로 123 | 대표: 김민수 | 이메일: gifhumor@example.com</p>
+    </footer>
+  </main>
 </body>
 </html>
