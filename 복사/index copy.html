@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GIF HUMOR</title>
+  <style>
+    body { margin: 0; padding: 0; font-family: "맑은 고딕", sans-serif; }
+    ul, li { list-style: none; margin: 0; padding: 0; }
+
+    /* 상단 메뉴 전체 컨테이너 */
+    .top-menu {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 40px;
+      padding: 20px 0;
+    }
+    .top-menu a {
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .top-menu a:hover {
+      color: #007acc;
+    }
+    .top-menu img {
+      width: 18px;
+      height: 18px;
+    }
+
+    header { width: 1100px; height: 100px; margin: 0 auto; }
+    #logo { float: left; width: 170px; height: auto; margin: 25px 40px 20px; }
+    #logo img { width: 100px; height: auto; }
+
+    #slider { width: 1100px; height: auto; margin: 0 auto; text-align: center; position: relative; }
+    #slider img { width: 100%; height: auto; }
+    #slider button {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(0, 0, 0, 0.5);
+      color: white;
+      border: none;
+      padding: 10px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    #slider button:first-of-type { left: 10px; }
+    #slider button:last-of-type { right: 10px; }
+
+    section { width: 800px; margin: 50px auto; overflow: hidden; }
+    article { float: left; width: 350px; min-height: 160px; margin: 0 10px; overflow: hidden; }
+
+    article h3 { display: none; }
+    article img { float: left; margin: 0 10px 0 0; }
+
+    .icon-wrap { clear: both; width: 1100px; margin: 20px auto; text-align: center; }
+    .icon { display: inline-block; width: 100px; margin: 0 20px; text-align: center; }
+    .icon a { text-decoration: none; color: #333; }
+    .icon a:hover { color: #007acc; }
+    .icon img { width: 100px; height: 100px; object-fit: contain; }
+    .icon p { margin-top: 10px; font-size: 13px; }
+
+    footer { width: 1100px; height: 100px; margin: 0 auto; overflow: hidden; }
+    footer img { float: left; margin: 20px 0 0 2px; }
+    footer p { font-size: 12px; color: #666; float: right; margin: 40px 100px 0 0; }
+
+    @media (max-width: 1100px) {
+      header, #slider, section, .icon-wrap, footer { width: 100%; padding: 0 10px; box-sizing: border-box; }
+      article { width: 100%; margin: 10px 0; }
+      .icon { margin: 0 10px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div id="logo">
+      <img src="img/logo.png" alt="GIF HUMOR 로고">
+    </div>
+  </header>
+
+  <!-- 🔻 새로 추가된 상단 메뉴 (아이콘 포함) -->
+  <nav class="top-menu">
+    <a href="#"><img src="img/icon_join.png" alt="회원가입">회원가입 / 로그인</a>
+    <a href="#"><img src="img/icon_search.png" alt="검색">검색</a>
+    <a href="#"><img src="img/icon_tools.png" alt="도구">도구 & 팁</a>
+    <a href="#"><img src="img/icon_today.png" alt="오늘의 웹툰">오늘의 웹툰</a>
+    <a href="#"><img src="img/icon_review.png" alt="웃음 리뷰">웃음 리뷰</a>
+    <a href="#"><img src="img/icon_rank.png" alt="인기랭킹">인기 랭킹</a>
+  </nav>
+
+  <div id="slider">
+    <img id="slide-image" src="img/main_webtoon_slide.png" alt="웹툰 메인 슬라이드">
+    <button onclick="changeSlide(-1)">이전</button>
+    <button onclick="changeSlide(1)">다음</button>
+  </div>
+
+  <section id="today-episode">
+    <article>
+      <img src="img/bottom_today_episode.png" alt="오늘의 에피소드" width="320">
+    </article>
+    <article>
+      <img src="img/bottom_sympathy_rank.png" alt="공감 랭킹" width="320">
+    </article>
+  </section>
+
+  <div class="icon-wrap" id="icon-section">
+    <div class="icon">
+      <a href="episode.html">
+        <img src="img/bottom_icon_episode.png" alt="에피소드 체험">
+        <p>에피소드 체험</p>
+      </a>
+    </div>
+    <div class="icon">
+      <a href="laugh.html">
+        <img src="img/bottom_icon_laugh.png" alt="웃음배달 신청">
+        <p>웃음배달 신청</p>
+      </a>
+    </div>
+    <div class="icon">
+      <a href="points.html">
+        <img src="img/bottom_icon_search.png" alt="공감포인트">
+        <p>공감포인트</p>
+      </a>
+    </div>
+  </div>
+
+  <script>
+    // 슬라이더 기능
+    const image = document.getElementById("slide-image");
+    const slides = [
+      "img/main_webtoon_slide.png",
+      "img/main_webtoon_slide.png",
+      "img/main_webtoon_slide.png"
+    ];
+    let current = 0;
+
+    function changeSlide(offset) {
+      current = (current + offset + slides.length) % slides.length;
+      image.src = slides[current];
+    }
+
+    // 자동 슬라이드
+    setInterval(() => changeSlide(1), 3000);
+
+    // 부드러운 스크롤
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+  </script>
+</body>
+</html>

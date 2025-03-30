@@ -16,11 +16,11 @@
       height: 100vh;
     }
     .logo {
-      text-align: left;
+      text-align: center;
       margin-bottom: 30px;
     }
     .logo img {
-      width: 120px;
+      width: 120px; /* 기존보다 2배 크기 */
     }
     .sidebar ul {
       list-style: none;
@@ -28,14 +28,6 @@
     .sidebar ul li {
       margin: 15px 0;
       font-size: 16px;
-      padding: 5px 10px;
-      border-radius: 5px;
-      transition: background-color 0.3s, color 0.3s;
-    }
-    .sidebar ul li:hover {
-      background-color: #ffeb3b;
-      color: #000;
-      cursor: pointer;
     }
     .sidebar ul li::before {
       margin-right: 8px;
@@ -54,14 +46,6 @@
     .main {
       padding: 30px 20px;
     }
-    .webtoon-title {
-      text-align: center;
-      margin: 30px 0;
-    }
-    .webtoon-title h1 {
-      font-size: 28px;
-      font-weight: bold;
-    }
     .webtoon-row {
       margin-bottom: 30px;
     }
@@ -69,21 +53,6 @@
       width: 100%;
       max-width: 900px;
       display: block;
-    }
-
-    /* 푸터 스타일 */
-    footer {
-      margin-top: 50px;
-      padding: 20px 0;
-      text-align: center;
-      font-size: 14px;
-      color: #777;
-      border-top: 1px solid #ccc;
-    }
-    footer img {
-      width: 80px;
-      vertical-align: middle;
-      margin-bottom: 10px;
     }
   </style>
 </head>
@@ -93,7 +62,7 @@
       <img src="img/logo.png" alt="GIF HUMOR 로고">
     </div>
     <ul>
-      <li onclick="location.href='login/login.html'">회원가입 / 로그인</li>
+      <li>회원가입 / 로그인</li>
       <li>검색</li>
       <li>도구 & 팁</li>
       <li>오늘의 웹툰</li>
@@ -105,27 +74,12 @@
     </ul>
   </aside>
   <main class="main">
-    <div class="webtoon-title">
-      <h1>😊 GIF HUMOR의 하루</h1>
-    </div>
-
     <div class="webtoon-row">
       <img src="img/main_webtoon_slide.png" alt="웹툰 1">
     </div>
-
-    <div class="webtoon-video" style="text-align: center; margin: 40px 0;">
-      <h2 style="font-size: 20px; margin-bottom: 20px;">🎬 GIF HUMOR 동영상</h2>
-      <video src="video/intro.mp4" controls style="max-width: 900px; width: 100%; border-radius: 10px;"></video>
+    <div class="webtoon-row">
+      <img src="img/main_webtoon_slide.png" alt="웹툰 2">
     </div>
-
-    <footer>
-      <div>
-        <img src="img/logo.png" alt="GIF HUMOR 로고">
-      </div>
-      <p>© 2025 GIF HUMOR. All rights reserved.</p>
-      <p>본 웹사이트의 모든 콘텐츠는 GIF HUMOR에 의해 제작되었으며, 무단 복제 및 배포를 금합니다.</p>
-      <p>주소: 서울특별시 강남구 테헤란로 123 | 대표: 김민수 | 이메일: gifhumor@example.com</p>
-    </footer>
   </main>
 </body>
 </html>

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>로그인 - GIF HUMOR</title>
+  <title>회원가입 - GIF HUMOR</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -16,47 +16,40 @@
 
     /* 사이드바 */
     .sidebar {
-      width: 240px;
+      width: 220px;
       background-color: #f5f5f5;
       padding: 30px 20px;
       height: 100vh;
       border-right: 1px solid #ccc;
     }
-
     .logo {
       text-align: left;
       margin-bottom: 30px;
     }
-
     .logo img {
       width: 120px;
     }
-
     .sidebar ul {
       list-style: none;
     }
-
     .sidebar ul li {
       margin: 15px 0;
       font-size: 16px;
       padding: 5px 10px;
       border-radius: 5px;
       transition: background-color 0.3s, color 0.3s;
-      white-space: nowrap;
+      white-space: nowrap;        /* 줄바꿈 방지 */
       overflow: hidden;
       text-overflow: ellipsis;
     }
-
     .sidebar ul li:hover {
       background-color: #ffeb3b;
       color: #000;
       cursor: pointer;
     }
-
     .sidebar ul li::before {
       margin-right: 8px;
     }
-
     .sidebar ul li:nth-child(1)::before { content: "📝"; }
     .sidebar ul li:nth-child(2)::before { content: "🔍"; }
     .sidebar ul li:nth-child(3)::before { content: "🛠"; }
@@ -67,72 +60,49 @@
     .sidebar ul li:nth-child(8)::before { content: "✉️"; }
     .sidebar ul li:nth-child(9)::before { content: "🔎"; }
 
-    /* 메인 영역 */
+    /* 메인 콘텐츠 */
     .main {
       flex: 1;
-      display: flex;
-      justify-content: flex-start;
-      align-items: flex-start;
-      padding-top: 130px;
+      padding: 80px 40px 40px 40px;
     }
 
-    .login-box {
+    .signup-box {
       background: white;
       padding: 40px;
       border-radius: 10px;
       box-shadow: 0 0 10px rgba(0,0,0,0.1);
       width: 100%;
-      max-width: 400px;
-      margin-left: 20px;
+      max-width: 500px;
     }
 
-    .logo-wrap {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 8px;
-      margin-bottom: 20px;
-    }
-
-    .logo-wrap img.logo {
-      width: 22px;
-      height: 22px;
-    }
-
-    .login-label {
+    .signup-title {
       font-size: 24px;
       font-weight: bold;
-      color: #333;
+      margin-bottom: 20px;
       display: flex;
       align-items: center;
-      gap: 5px;
+      gap: 8px;
     }
 
     .form-group {
-      display: flex;
-      align-items: center;
       margin-bottom: 20px;
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      padding: 10px;
-      background-color: #fffef2;
     }
 
-    .form-group img {
-      width: 24px;
-      height: 24px;
-      margin-right: 10px;
+    .form-group label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
     }
 
     .form-group input {
-      flex: 1;
-      border: none;
-      outline: none;
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
       font-size: 16px;
-      background: transparent;
     }
 
-    .login-btn {
+    .signup-btn {
       width: 100%;
       padding: 12px;
       font-size: 16px;
@@ -143,24 +113,22 @@
       transition: background-color 0.3s;
     }
 
-    .login-btn:hover {
+    .signup-btn:hover {
       background-color: #fdd835;
     }
 
-    .login-links {
+    .back-link {
       margin-top: 20px;
-      font-size: 14px;
-      color: #777;
       text-align: center;
+      font-size: 14px;
     }
 
-    .login-links a {
-      color: #333;
+    .back-link a {
       text-decoration: none;
-      margin: 0 5px;
+      color: #333;
     }
 
-    .login-links a:hover {
+    .back-link a:hover {
       text-decoration: underline;
     }
   </style>
@@ -173,7 +141,7 @@
       <img src="../img/logo.png" alt="GIF HUMOR 로고" />
     </div>
     <ul>
-      <li onclick="location.href='../index.html'">회원가입 / 로그인</li>
+      <li onclick="location.href='../login/login.html'">회원가입 / 로그인</li>
       <li>검색</li>
       <li>도구 & 팁</li>
       <li>오늘의 웹툰</li>
@@ -185,32 +153,35 @@
     </ul>
   </aside>
 
-  <!-- 로그인 메인 -->
+  <!-- 회원가입 영역 -->
   <main class="main">
-    <div class="login-box">
-      <div class="logo-wrap">
-        <span style="font-size: 22px;">😊</span>
-        <span class="login-label">
-          LOGIN
-          <img src="img/icon_password.png" alt="자물쇠 아이콘" style="width: 20px; height: 20px;" />
-        </span>
+    <div class="signup-box">
+      <div class="signup-title">📝 회원가입</div>
+
+      <div class="form-group">
+        <label for="username">아이디</label>
+        <input type="text" id="username" placeholder="아이디를 입력하세요">
       </div>
 
       <div class="form-group">
-        <img src="img/icon_id.png" alt="아이디 아이콘" />
-        <input type="text" placeholder="Username (아이디)" />
+        <label for="email">이메일</label>
+        <input type="email" id="email" placeholder="example@example.com">
       </div>
 
       <div class="form-group">
-        <img src="img/icon_password.png" alt="비밀번호 아이콘" />
-        <input type="password" placeholder="Password (비밀번호)" />
+        <label for="password">비밀번호</label>
+        <input type="password" id="password" placeholder="비밀번호 입력">
       </div>
 
-      <button class="login-btn">로그인</button>
+      <div class="form-group">
+        <label for="confirm">비밀번호 확인</label>
+        <input type="password" id="confirm" placeholder="비밀번호 다시 입력">
+      </div>
 
-      <div class="login-links">
-        <a href="#">회원가입</a> | 
-        <a href="#">아이디/비밀번호 찾기</a>
+      <button class="signup-btn">회원가입</button>
+
+      <div class="back-link">
+        <a href="../login/login.html">이미 계정이 있으신가요? 로그인</a>
       </div>
     </div>
   </main>
